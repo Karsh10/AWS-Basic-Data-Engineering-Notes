@@ -1,5 +1,8 @@
-# AWS-Basic-Data-Engineering-Notes
-Beginner AWS notes
+# AWS-Basic Data Engineering Notes
+### I’m using this repo to keep track of what I study and to revise later.
+### The notes are written in a simple way so they’re easy to understand and revisit
+
+
 # Introduction to AWS
 
 ## What is AWS?
