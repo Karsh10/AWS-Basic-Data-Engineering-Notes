@@ -176,3 +176,165 @@ Everything is managed by provider.
 - IaaS, PaaS, SaaS define levels of control
 - Public cloud is most common
 - Always manage billing carefully
+
+# AWS Global Infrastructure
+
+## What is a Region?
+
+A **Region** is a physical geographic location where AWS has data centers.
+
+<img width="425" height="394" alt="4" src="https://github.com/user-attachments/assets/368a09bc-e6b5-42ab-ad86-0338c60968fb" />
+
+### Examples:
+
+- ap-south-1 (Mumbai)
+- us-east-1 (N. Virginia)
+## What is an Availability Zone (AZ)?
+
+An **Availability Zone** is a data center (or group of data centers) inside a region.
+
+ Each region has multiple AZs.
+
+> Region = City  
+> AZ = Buildings inside the city
+
+## Why Multiple AZs?
+
+- Fault tolerance
+- High availability
+- Disaster recovery
+- 
+If one AZ fails → your app still runs in another AZ
+# ⚡ High Availability vs Fault Tolerance
+
+## High Availability
+
+- System stays operational most of the time
+- Uses multiple AZs
+## Fault Tolerance
+
+- System continues without interruption
+- Even during failure
+
+## Simple Difference
+
+|Concept|Meaning|
+|---|---|
+|High Availability|Minimal downtime|
+|Fault Tolerance|No downtime|
+
+# AWS IAM 
+
+## What is IAM?
+
+IAM (Identity and Access Management) controls:
+
+- Who can access AWS
+- What actions they can perform
+<img width="428" height="427" alt="5" src="https://github.com/user-attachments/assets/1fbb0258-1d07-488a-91e9-cd78cd393846" />
+
+## IAM Components
+
+### 👤 Users
+
+- Individual identities
+- Example: developer, admin
+
+---
+
+### 👥 Groups
+
+- Collection of users
+- Assign permissions once
+<img width="401" height="323" alt="6" src="https://github.com/user-attachments/assets/0aee0e8f-f717-4539-b84f-7d68480304af" />
+<img width="435" height="281" alt="7" src="https://github.com/user-attachments/assets/aa7bf83a-8a07-4036-b07d-96dca58aca6a" />
+
+---
+
+### 🎭 Roles (MOST IMPORTANT)
+
+- Temporary permissions
+- Used by services
+<img width="391" height="223" alt="8" src="https://github.com/user-attachments/assets/844a041b-84d0-4171-98ab-a9192de0180e" />
+<img width="358" height="224" alt="9" src="https://github.com/user-attachments/assets/31682cab-4a03-4a7c-a3d2-e725da32e8bd" />
+
+---
+
+## 🔥 Example:
+
+- EC2 accesses S3 using IAM Role
+- Databricks accesses S3 using IAM Role
+
+---
+
+### 📜 Policies
+
+- JSON documents defining permissions
+
+Example:
+
+{  
+  "Effect": "Allow",  
+  "Action": "s3:GetObject",  
+  "Resource": "*"  
+}
+
+---
+
+#  IAM Concepts (Deep Understanding)
+
+## 1. Authentication vs Authorization
+
+- Authentication → Who you are
+- Authorization → What you can do
+
+---
+
+## 2. Least Privilege Principle
+
+> Give only required permissions
+
+---
+
+## 3. Root User
+
+- Full access account
+- Should NOT be used daily
+
+---
+
+---
+
+# ⚠️ IAM Best Practices
+
+- Never use root account
+- Use IAM roles instead of access keys
+- Enable MFA (Multi-Factor Authentication)
+- Rotate credentials regularly
+- Follow least privilege
+
+---
+
+---
+
+# 🔄 Real-World Usage
+
+## Example Pipeline
+
+Databricks → IAM Role → S3
+
+---
+
+## Example:
+
+- Glue job reads from S3 using role
+- Lambda writes to S3 using role
+
+---
+
+# Common Interview Questions
+
+- What is IAM?
+- Difference between Role and User?
+- What is least privilege?
+- How does EC2 access S3?
