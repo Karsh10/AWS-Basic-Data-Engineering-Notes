@@ -338,3 +338,159 @@ Databricks → IAM Role → S3
 - Difference between Role and User?
 - What is least privilege?
 - How does EC2 access S3?
+# Virtualization (Core Concept)
+
+## What is Virtualization?
+
+Virtualization allows multiple **virtual machines (VMs)** to run on a single physical machine.
+<img width="440" height="395" alt="10" src="https://github.com/user-attachments/assets/d0b89ea4-02b3-4799-9420-68e2e3064d63" />
+
+## Why it exists:
+
+- Better resource utilization
+- Cost efficiency
+- Isolation between systems
+- A physical server with:
+  16 GB RAM
+  8 CPU cores
+  Can run:
+  4 VMs (each 4 GB RAM + 2 cores)
+
+---
+
+## Example:
+
+One physical server → runs:
+
+- 5 different OS
+- 5 different applications
+
+---
+
+## Key Idea
+
+> One hardware → multiple virtual systems
+
+## What is a Hypervisor?
+- A Hypervisor is software that creates and manages virtual machines.
+
+|Feature|VM|Container|
+|---|---|---|
+|OS|Separate|Shared|
+|Size|Large|Small|
+|Speed|Slower|Faster|
+
+## Type 1 (Cloud / AWS)
+- Hardware → Hypervisor → VM
+- Hypervisor directly controls hardware
+- It divides RAM, CPU properly
+- No OS in between
+
+That’s why:
+Faster
+More efficient
+Used in AWS
+
+## Type 2 (Your Laptop)
+- Hardware → OS → Hypervisor → VM
+- Hypervisor depends on your OS
+- OS also using RAM + CPU
+
+So:
+Slower
+Less efficient
+
+---
+
+# AWS EC2 (Elastic Compute Cloud)
+
+## What is EC2?
+
+EC2 is a service that provides **virtual servers in the cloud**.
+
+---
+
+## Simple Definition
+
+> EC2 = rent a computer in the cloud
+
+---
+
+## Use Cases:
+
+- Hosting applications
+- Running backend servers
+- Big data processing
+- Running scripts/jobs
+
+---
+
+---
+
+# EC2 Core Components
+
+## 1. Instance
+
+- A virtual machine
+- You choose CPU, RAM, OS
+
+---
+
+## 2. AMI (Amazon Machine Image)
+
+- Pre-configured OS template
+- Example: Ubuntu, Windows
+
+---
+
+## 3. Instance Types
+
+- Define power of machine
+- Example:
+    - t2.micro (small)
+    - m5.large (powerful)
+
+---
+
+## 4. Security Group
+
+- Firewall for EC2
+- Controls:
+    - Inbound traffic
+    - Outbound traffic
+
+---
+
+## 5. Key Pair
+
+- Used for SSH login
+- Private key = access to server
+
+---
+
+## 6. EBS (Elastic Block Storage)
+
+- Disk attached to EC2
+- Persistent storage
+
+<img width="440" height="395" alt="10" src="https://github.com/user-attachments/assets/9e18a8f3-9295-47c7-ad0a-fec0a248d782" />
+<img width="391" height="346" alt="11" src="https://github.com/user-attachments/assets/80c74b7e-e3f7-4581-adb0-e393ff4cecf3" />
+<img width="431" height="237" alt="12" src="https://github.com/user-attachments/assets/9a000502-2539-4391-a448-c6d51dd8b579" />
+
+---
+
+---
+
+# EC2 Important Concepts
+
+## Stateless vs Stateful
+
+- EC2 = stateless (can terminate anytime)
+- EBS = stateful (stores data permanently)
+
+---
+
+## Scaling
+
+- You can launch multiple EC2 instances
+- Used in auto-scaling systems
