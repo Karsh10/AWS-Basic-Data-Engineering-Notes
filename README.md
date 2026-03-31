@@ -497,3 +497,520 @@ EC2 is a service that provides **virtual servers in the cloud**.
 
 - You can launch multiple EC2 instances
 - Used in auto-scaling systems
+
+# STORAGE TYPES OVERVIEW
+
+## 3 Types:
+
+|Type|Example|Use|
+|---|---|---|
+|Block Storage|EBS|OS, databases|
+|Object Storage|S3|Files, logs|
+|Data Lake|S3|Analytics|
+
+---
+
+---
+
+# BLOCK STORAGE (EBS)
+
+## What is EBS?
+
+- Disk-like storage
+- Attached to EC2
+<img width="391" height="346" alt="11" src="https://github.com/user-attachments/assets/b7442456-e88e-40b3-ab47-483a0ffc3b88" />
+<img width="431" height="237" alt="12" src="https://github.com/user-attachments/assets/2dfb3e22-0062-473b-914d-1e2f55dc4b09" />
+
+---
+
+## Features:
+
+- Persistent
+- High performance
+- Can detach/attach
+
+---
+
+## Use Cases:
+
+- OS storage
+- Databases
+- Applications
+
+---
+
+## Analogy:
+
+> EBS = Hard drive of your computer
+
+---
+
+---
+
+#  BLOB STORAGE (S3)
+
+## What is Object Storage?
+
+- Stores data as objects (files)
+<img width="415" height="288" alt="14" src="https://github.com/user-attachments/assets/c9a98c93-571f-4e35-9b92-adf894b928b3" />
+<img width="435" height="322" alt="15" src="https://github.com/user-attachments/assets/c64747b4-9cda-4d65-af0c-28e014ca2d67" />
+
+---
+
+## Features:
+
+- Unlimited storage
+- Highly durable
+- Accessible via internet
+
+---
+
+## Use Cases:
+
+- Images, videos
+- Logs
+- Backups
+
+---
+
+## Analogy:
+
+> S3 = Google Drive of AWS
+
+---
+
+---
+
+# DATA LAKE (VERY IMPORTANT)
+
+## What is Data Lake?
+
+A data lake is a system to store:
+
+- Raw data
+- Structured + unstructured
+<img width="332" height="134" alt="16" src="https://github.com/user-attachments/assets/f096ce80-09bb-4bfc-a64c-43964a71d7be" />
+
+---
+
+## Built Using:
+
+- S3
+
+---
+
+## Features:
+
+- Stores all types of data
+- Schema-on-read
+- Used in analytics
+
+---
+
+## Example:
+
+- Logs
+- JSON files
+- CSV files
+
+---
+
+---
+
+# ⚔️ STORAGE COMPARISON
+
+|Feature|EBS|S3|Data Lake|
+|---|---|---|---|
+|Type|Block|Object|Object|
+|Usage|OS|Files|Analytics|
+|Attach to EC2|Yes|No|No|
+|Scalability|Limited|Unlimited|Unlimited|
+#  AWS S3 (Simple Storage Service) 🪣
+
+## What is S3?
+
+S3 is a **cloud storage service** used to store files.
+
+---
+
+## Simple Definition
+
+> S3 = place where you store files (like Google Drive, but for systems)
+
+---
+
+## What can you store?
+
+- CSV files
+- JSON data
+- Images
+- Logs
+- Videos
+
+---
+
+---
+
+# S3 Core Concepts
+
+## 1. Bucket
+
+- Container for files
+- Must have **unique name globally**
+
+Example:
+
+my-data-bucket
+
+---
+
+## 2. Object
+
+- Actual file stored in S3
+
+Example:
+
+data.csv
+
+---
+
+## 3. Key
+
+- Path of file inside bucket
+
+Example:
+
+my-data-bucket/raw/data.csv
+
+---
+
+## Think like this:
+
+|Concept|Real Meaning|
+|---|---|
+|Bucket|Folder|
+|Object|File|
+|Key|File path|
+
+---
+
+---
+
+# S3 Features (Detailed)
+
+## 1. Unlimited Storage
+
+- No limit on number of files
+
+---
+
+## 2. High Durability
+
+- Data stored across multiple AZs
+- Very low chance of loss
+
+---
+
+## 3. Versioning
+
+- Keeps old versions of files
+
+---
+
+## 4. Lifecycle Rules
+
+- Move data automatically:
+    - To cheaper storage
+    - Or delete after time
+
+---
+
+## 5. Encryption
+
+- Protects data
+
+---
+
+## 6. Event Notifications
+
+- Can trigger actions when file uploaded
+
+---
+
+---
+
+# S3 Storage Classes
+
+|Class|Use|
+|---|---|
+|Standard|Frequently used data|
+|Standard-IA|Less frequently used|
+|Glacier|Backup / archive|
+|Intelligent Tiering|Auto optimization|
+# Ways to Access AWS Services
+
+There are **4 main ways**:
+
+1. AWS Console (UI)
+2. AWS CLI (Terminal)
+3. SDK (boto3, Java, etc.)
+4. REST APIs (direct HTTP calls)
+<img width="425" height="302" alt="13" src="https://github.com/user-attachments/assets/bbbb39de-89ba-4053-a44a-d5c82015cc87" />
+
+---
+
+# Big Picture
+
+You → (Console / CLI / SDK / API) → AWS → Service (S3, EC2, etc.)
+
+---
+
+#  1. AWS CONSOLE (EASIEST)
+
+Website UI (what you’ve been using)
+
+### Example:
+
+- Upload file manually to S3
+
+---
+
+## Pros
+
+- Easy
+- Beginner-friendly
+
+## Cons
+
+- Not scalable
+- Not used in automation
+
+---
+
+---
+
+#  2. AWS CLI (VERY IMPORTANT)
+
+Use AWS from terminal
+
+---
+
+## Setup (one-time)
+
+aws configure
+
+---
+
+## Example: List buckets
+
+aws s3 ls
+
+---
+
+## Example: Upload file
+
+aws s3 cp file.txt s3://my-bucket/
+
+---
+
+## Meaning
+
+You are sending commands directly from terminal
+
+---
+
+## Pros
+
+- Fast
+- Used in real jobs
+- No coding needed
+
+---
+
+## Cons
+
+- Manual commands
+
+---
+
+---
+
+# 3. SDK (boto3, etc.)
+# What is SDK?
+
+SDK (Software Development Kit) lets your code talk to AWS.
+
+---
+
+## Simple Idea
+
+Your Code → boto3 → AWS → S3
+
+boto3 = AWS SDK for Python
+
+---
+
+# Why use `.env`?
+
+## ❌ Problem without `.env`
+
+aws_access_key_id = "ABC123"  
+aws_secret_access_key = "XYZ456"
+
+Bad because:
+
+- Keys exposed ❌
+- Not secure ❌
+
+---
+
+## Solution: `.env`
+
+Store secrets in a separate file:
+
+AWS_ACCESS_KEY_ID=your_key_here  
+AWS_SECRET_ACCESS_KEY=your_secret_here
+
+---
+
+##  Why this is good
+
+- Keeps code clean
+- Protects secrets
+- Used in real projects
+
+---
+
+---
+
+# How `.env` works
+
+## Step 1: Install
+
+pip install python-dotenv
+
+---
+
+## Step 2: Load variables
+
+from dotenv import load_dotenv  
+load_dotenv()
+
+---
+
+## Step 3: Access values
+
+os.getenv('AWS_ACCESS_KEY_ID')
+
+---
+
+## Flow
+
+.env → load_dotenv() → os.getenv() → boto3 → AWS
+
+---
+
+---
+
+# CODE (EXPLAINED)
+
+import boto3  
+import os  
+from dotenv import load_dotenv  
+  
+load_dotenv()  
+  
+s3_client = boto3.client(  
+    's3',  
+    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),  
+    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')  
+)
+
+---
+
+## What this does
+
+- Loads `.env` file
+- Gets credentials
+- Creates connection to S3
+
+---
+
+---
+
+# 📄 LIST BUCKETS
+
+response = s3_client.list_buckets()  
+  
+for bucket in response['Buckets']:  
+    print(bucket['Name'])
+
+---
+
+## 🧠 Meaning
+
+👉 Show all S3 buckets in your account
+
+---
+
+---
+
+# 🗑️ DELETE BUCKET
+
+response = s3_client.delete_bucket(  
+    Bucket='anshbucket123343',  
+    ExpectedBucketOwner='847324761542'  
+)
+
+---
+
+## 🧠 Explanation
+
+|Parameter|Meaning|
+|---|---|
+|Bucket|bucket name|
+|ExpectedBucketOwner|AWS account ID (extra safety)|
+
+---
+
+## ⚠️ IMPORTANT RULE
+
+> Bucket must be EMPTY before deleting
+
+---
+
+---
+
+# How Authentication Works
+
+## Step-by-step
+
+.env → credentials → boto3 → AWS verifies → action allowed/denied
+
+---
+
+## Two Concepts
+
+- Authentication → Who you are
+- Authorization → What you can do
+
+# OFFICIAL DOCUMENTATION
+
+👉 boto3 S3 Docs  
+[https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html)
+## Example:
+
+import boto3  
+s3 = boto3.client('s3')  
+s3.list_buckets()
+
+## ✅ Pros
+
+- Automation
+- Used in pipelines
+
+---
+
+## ❌ Cons
+
+- Requires coding
