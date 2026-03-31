@@ -477,8 +477,6 @@ EC2 is a service that provides **virtual servers in the cloud**.
 - Persistent storage
 
 <img width="440" height="395" alt="10" src="https://github.com/user-attachments/assets/9e18a8f3-9295-47c7-ad0a-fec0a248d782" />
-<img width="391" height="346" alt="11" src="https://github.com/user-attachments/assets/80c74b7e-e3f7-4581-adb0-e393ff4cecf3" />
-<img width="431" height="237" alt="12" src="https://github.com/user-attachments/assets/9a000502-2539-4391-a448-c6d51dd8b579" />
 
 ---
 
